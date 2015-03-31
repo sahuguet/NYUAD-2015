@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tags</title>
+  <link rel="stylesheet" href="static/styles/styles.css">
+  <script src="//use.typekit.net/pgm4fwy.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  
+</head>
+<body>
+
+    <div class="page">
+    {% for tag in badges %}  
+    <div class="item">
+
+      <div class="icon">
+        <img src="static/hackathon-logo.jpg" alt="">
+      </div>
+
+      <div class="color-bar {{tag.role|lower}}">
+        <span class="sector">{{tag.role}}</span>
+      </div>
+
+      <h1 class="name">{{tag.fname}} {{tag.lname}}</h1>
+      <h2>{{tag.title + "&nbsp;<br/>"}}</h2>
+      <h3>{{tag.org}}</h3>
+      
+      <div class="branding">
+        {#<div class="logo"><img src="static/logo.svg" alt=""></div>#}
+        <p class="event-name">NYU AD Hackathon for Social Good</p>
+        <p><span class="date">April 9-12, 2015 – Abu Dhabi UAE</span></p>
+      </div>
+    </div>
+    {% if loop.index is divisibleby 6 %}
+    </div> <!-- class="page" -->
+    <div class="page-break"></div><!-- Every 6 badges -->
+    <div class="page">  
+    {% endif %}
+    {% endfor %}
+  </div>
+</body>
+</html>
